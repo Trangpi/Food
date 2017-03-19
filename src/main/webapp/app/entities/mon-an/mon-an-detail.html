@@ -1,0 +1,48 @@
+
+<div>
+    <h2><span data-translate="foodApp.monAn.detail.title">Mon An</span> {{vm.monAn.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="foodApp.monAn.ten">Ten</span></dt>
+        <dd>
+            <span>{{vm.monAn.ten}}</span>
+        </dd>
+        <dt><span data-translate="foodApp.monAn.gia">Gia</span></dt>
+        <dd>
+            <span>{{vm.monAn.gia}}</span>
+        </dd>
+        <dt><span data-translate="foodApp.monAn.image">Image</span></dt>
+        <dd>
+            <div ng-if="vm.monAn.image">
+                <a ng-click="vm.openFile(vm.monAn.imageContentType, vm.monAn.image)">
+                    <img data-ng-src="{{'data:' + vm.monAn.imageContentType + ';base64,' + vm.monAn.image}}" style="max-width: 100%;"/>
+                </a>
+                {{vm.monAn.imageContentType}}, {{vm.byteSize(vm.monAn.image)}}
+            </div>
+        </dd>
+        <dt><span data-translate="foodApp.monAn.theloai">Theloai</span></dt>
+        <dd>
+            <span>{{vm.monAn.theloai}}</span>
+        </dd>
+        <dt><span data-translate="foodApp.monAn.sale">Sale</span></dt>
+        <dd>
+            <span>{{vm.monAn.sale}}</span>
+        </dd>
+        <dt><span data-translate="foodApp.monAn.date_create">Date Create</span></dt>
+        <dd>
+            <span>{{vm.monAn.date_create | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="mon-an-detail.edit({id:vm.monAn.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

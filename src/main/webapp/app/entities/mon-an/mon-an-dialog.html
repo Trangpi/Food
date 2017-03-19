@@ -1,0 +1,128 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMonAnLabel" data-translate="foodApp.monAn.home.createOrEditLabel">Create or edit a Mon An</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.monAn.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.monAn.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="foodApp.monAn.ten" for="field_ten">Ten</label>
+            <input type="text" class="form-control" name="ten" id="field_ten"
+                    ng-model="vm.monAn.ten"
+                    required />
+            <div ng-show="editForm.ten.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ten.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="foodApp.monAn.gia" for="field_gia">Gia</label>
+            <input type="number" class="form-control" name="gia" id="field_gia"
+                    ng-model="vm.monAn.gia"
+                    required />
+            <div ng-show="editForm.gia.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.gia.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.gia.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setImage($file, vm.monAn)" ngf-pattern="'image/*'">
+            <label class="control-label" data-translate="foodApp.monAn.image" for="field_image">Image</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.monAn.imageContentType + ';base64,' + vm.monAn.image}}" style="max-height: 100px;" ng-if="vm.monAn.image"/>
+                <div ng-if="vm.monAn.image" class="help-block clearfix">
+                    <span class="pull-left">{{vm.monAn.imageContentType}}, {{vm.byteSize(vm.monAn.image)}}</span>
+                    <button type="button" ng-click="vm.monAn.image=null;vm.monAn.imageContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setImage($file, vm.monAn)" accept="image/*" data-translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                    ng-model="vm.monAn.image"
+                    required />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                    ng-model="vm.monAn.imageContentType" />
+            <div ng-show="editForm.image.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.image.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="foodApp.monAn.theloai" for="field_theloai">Theloai</label>
+            <input type="text" class="form-control" name="theloai" id="field_theloai"
+                    ng-model="vm.monAn.theloai"
+                    required />
+            <div ng-show="editForm.theloai.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.theloai.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="foodApp.monAn.sale" for="field_sale">Sale</label>
+            <input type="number" class="form-control" name="sale" id="field_sale"
+                    ng-model="vm.monAn.sale"
+                    required min="0" max="100" />
+            <div ng-show="editForm.sale.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sale.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sale.$error.min" data-translate="entity.validation.min" translate-value-min="0">
+                    This field should be more than 0.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sale.$error.max" data-translate="entity.validation.max" translate-value-max="100">
+                    This field cannot be more than 100.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.sale.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="foodApp.monAn.date_create" for="field_date_create">Date Create</label>
+                <div class="input-group">
+                    <input id="field_date_create" type="text" class="form-control" name="date_create" uib-datepicker-popup="{{dateformat}}" ng-model="vm.monAn.date_create" is-open="vm.datePickerOpenStatus.date_create"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_create')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,251 @@
+<script>
+    $(function(){
+
+    });
+</script>
+<style>
+    .icon_gio_hang{
+        position: fixed;
+        bottom:0px;
+        width: auto;
+        height : auto;
+        right: 0px;
+        text-decoration:none;
+    }
+
+
+    <!--.right_menu_tab{-->
+        <!--position: fixed;-->
+    <!--}-->
+    .img_demo{
+        <!--position:relative;-->
+        max-width:100%;
+        <!--position: relative;-->
+    }
+    .hinh_anh{
+        position:relative;
+    }
+    .content1{
+        background:rgba(119, 119, 119, 0.74);
+        position:absolute;
+        width:100%;
+        height: 0px;
+        top: 0px;
+        overflow:hidden;
+        transition-duration:0.2s;
+        transition-property:height;
+        transition-timing-function:linear;
+        text-align : center;
+
+    }
+    .content2{
+        background:rgba(119, 119, 119, 0.74);
+        position:absolute;
+        width:100%;
+        height: 0px;
+        bottom: 0px;
+        overflow:hidden;
+        transition-duration:0.2s;
+        transition-property:height;
+        transition-timing-function:linear;
+        text-align : center;
+    }
+    .content1>div{
+        color:white;
+    }
+    .content1>div>a>span{
+        text-decoration:none;
+        color:white;
+    }
+    .hinh_anh:hover .content1{
+        height:50%;
+    }
+    .hinh_anh:hover .content2{
+        height:50%;
+    }
+    .hinh_anh{
+        margin-bottom : 30px;
+    }
+    .gio_hang{
+        color : red;
+    }
+</style>
+
+<div class="container-fuild">
+    <div id="carousel-id" class="carousel slide quangcao_background" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+            <li data-target="#carousel-id" data-slide-to="3" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="4" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="content/images/quangcao2.jpg" width="100%" alt="" >
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="content/images/quangcao3.jpg" width="100%" alt="" >
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="content/images/quangcao4.png" width="100%" alt="" >
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="content/images/quangcao5.png" width="100%" alt="" >
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="content/images/quangcao6.png" width="100%" alt="" >
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="right_menu_tab">
+                <nav class="navbar navbar-inverse">
+                    <ul class="nav navbar-nav">
+                        <li><a ui-sref="view">Mới nhất</a></li>
+                        <li><a ui-sref="view_mon_an.toptuan">Top tuần</a></li>
+                        <li><a ui-sref="view_mon_an.topthang">Top tháng</a></li>
+                        <!--<li><a ui-sref="view_mon_an.save">Đã lưu</a></li>-->
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    -Loại hình-
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Sang trọng</a></li>
+                                    <li><a href="#">Buffet</a></li>
+                                    <li><a href="#">Nhà hàng</a></li>
+                                    <li><a href="#">Ăn chay</a></li>
+                                    <li><a href="#">Quán ăn</a></li>
+                                    <li><a href="#">Cafe</a></li>
+                                    <li><a href="#">Khu ẩm thực</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Khác</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    -Ẩm thực-
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Miền Bắc</a></li>
+                                    <li><a href="#">Miền Trung</a></li>
+                                    <li><a href="#">Miền Nam</a></li>
+                                    <li><a href="#">Ấn Độ</a></li>
+                                    <li><a href="#">Thái Lan</a></li>
+                                    <li><a href="#">Ý</a></li>
+                                    <li><a href="#">Pháp</a></li>
+                                    <li><a href="#">Đức</a></li>
+                                    <li><a href="#">Thụy Sĩ</a></li>
+                                    <li><a href="#">Tàu</a></li>
+                                    <li><a href="#">Mỹ</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    -Quận huyện-
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="#">Hai Bà Trưng</a></li>
+                                    <li><a href="#">Đống Đa</a></li>
+                                    <li><a href="#">Ba Đình</a></li>
+                                    <li><a href="#">Hoàng Mai</a></li>
+                                    <li><a href="#">Thanh Xuân</a></li>
+                                    <li><a href="#">Cầu Giấy</a></li>
+                                    <li><a href="#">Hoàn Kiếm</a></li>
+                                    <li><a href="#">Tây Hồ</a></li>
+                                    <li><a href="#">Gia Lâm</a></li>
+                                    <li><a href="#">Đông Anh</a></li>
+                                    <li><a href="#">Ba Vì</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <form class="navbar-form navbar-left " role="search">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Địa điểm, món ăn,..." >
+                                </div>
+
+                                <!--<a href="#"><span class="btn btn-default glyphicon glyphicon-search"></span></a>-->
+                            </form>
+                        </li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a ui-sref="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="" ng-click="vm.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li><a href="" ng-click="vm.logout()"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
+                        </ul>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div ui-view></div>
+
+
+    <div ng-repeat="monAn in vm.monAns track by monAn.id" >
+        <div class="col-md-4 col-sm-4 ">
+            <div class="hinh_anh">
+                <img data-ng-src="{{'data:' + monAn.imageContentType + ';base64,' + monAn.image}}"  class="img-responsive  img_demo"/>
+                <div class="content1">
+                    <div class="p0"><h3>{{monAn.ten}}</h3></div>
+                    <div class="p1">{{monAn.gia}}Đ</div>
+                    <div class="p2">SALE : {{monAn.sale}}%</div>
+                </div>
+                <div class="content2">
+                    <a href="#"><h3><span class="p3 glyphicon glyphicon-shopping-cart gio_hang">Thêm vào giỏ</span></h3></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="icon_gio_hang col-md-1">
+    <div class="btn-group-vertical">
+        <a href="#" class="btn btn-raised"><span class="glyphicon glyphicon-triangle-top"></span></a>
+        <a ui-sref="gio_hang" class="btn btn-raised"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+{
+    "foodApp": {
+        "monAn" : {
+            "home": {
+                "title": "Mon Ans",
+                "createLabel": "Create a new Mon An",
+                "createOrEditLabel": "Create or edit a Mon An",
+                "search": "Search for Mon An"
+            },
+            "created": "A new Mon An is created with identifier {{ param }}",
+            "updated": "A Mon An is updated with identifier {{ param }}",
+            "deleted": "A Mon An is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mon An {{ id }}?"
+            },
+            "detail": {
+                "title": "Mon An"
+            },
+            "ten": "Ten",
+            "gia": "Gia",
+            "image": "Image",
+            "theloai": "Theloai",
+            "sale": "Sale",
+            "date_create": "Date Create",
+            "billconect": "Billconect"
+        }
+    }
+}

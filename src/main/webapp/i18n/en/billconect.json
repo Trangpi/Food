@@ -1,0 +1,24 @@
+{
+    "foodApp": {
+        "billconect" : {
+            "home": {
+                "title": "Billconects",
+                "createLabel": "Create a new Billconect",
+                "createOrEditLabel": "Create or edit a Billconect",
+                "search": "Search for Billconect"
+            },
+            "created": "A new Billconect is created with identifier {{ param }}",
+            "updated": "A Billconect is updated with identifier {{ param }}",
+            "deleted": "A Billconect is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Billconect {{ id }}?"
+            },
+            "detail": {
+                "title": "Billconect"
+            },
+            "soluong": "Soluong",
+            "monAn": "Mon An",
+            "bill": "Bill"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Billconect.
+    -->
+    <changeSet id="20170309154229-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="mon_an_id"
+                                 baseTableName="billconect"
+                                 constraintName="fk_billconect_mon_an_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mon_an"/>
+
+        <addForeignKeyConstraint baseColumnNames="bill_id"
+                                 baseTableName="billconect"
+                                 constraintName="fk_billconect_bill_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bill"/>
+
+    </changeSet>
+</databaseChangeLog>

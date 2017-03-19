@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="foodApp.billconect.detail.title">Billconect</span> {{vm.billconect.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="foodApp.billconect.soluong">Soluong</span></dt>
+        <dd>
+            <span>{{vm.billconect.soluong}}</span>
+        </dd>
+        <dt><span data-translate="foodApp.billconect.monAn">Mon An</span></dt>
+        <dd>
+            <a ui-sref="mon-an-detail({id:vm.billconect.monAn.id})">{{vm.billconect.monAn.id}}</a>
+        </dd>
+        <dt><span data-translate="foodApp.billconect.bill">Bill</span></dt>
+        <dd>
+            <a ui-sref="bill-detail({id:vm.billconect.bill.id})">{{vm.billconect.bill.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="billconect-detail.edit({id:vm.billconect.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

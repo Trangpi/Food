@@ -1,0 +1,88 @@
+<div>
+    <h2 data-translate="foodApp.monAn.home.title">Mon Ans</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="mon-an.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs"  data-translate="foodApp.monAn.home.createLabel">
+                        Create new Mon An
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'foodApp.monAn.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="foodApp.monAn.ten">Ten</span></th>
+                    <th><span data-translate="foodApp.monAn.gia">Gia</span></th>
+                    <th><span data-translate="foodApp.monAn.image">Image</span></th>
+                    <th><span data-translate="foodApp.monAn.theloai">Theloai</span></th>
+                    <th><span data-translate="foodApp.monAn.sale">Sale</span></th>
+                    <th><span data-translate="foodApp.monAn.date_create">Date Create</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="monAn in vm.monAns track by monAn.id">
+                    <td><a ui-sref="mon-an-detail({id:monAn.id})">{{monAn.id}}</a></td>
+                    <td>{{monAn.ten}}</td>
+                    <td>{{monAn.gia}}</td>
+                    <td>
+                        <a ng-if="monAn.image" ng-click="vm.openFile(monAn.imageContentType, monAn.image)">
+                            <img data-ng-src="{{'data:' + monAn.imageContentType + ';base64,' + monAn.image}}" style="max-height: 30px;"/>
+                        </a>
+                        <span ng-if="monAn.image">{{monAn.imageContentType}}, {{vm.byteSize(monAn.image)}}</span>
+                    </td>
+                    <td>{{monAn.theloai}}</td>
+                    <td>{{monAn.sale}}</td>
+                        <td>{{monAn.date_create | date:'mediumDate'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="mon-an-detail({id:monAn.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="mon-an.edit({id:monAn.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="mon-an.delete({id:monAn.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
